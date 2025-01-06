@@ -111,3 +111,13 @@ $admins = array_filter($users, $isAdmin);
 $bob = array_filter($users, $isBob);
 
 var_dump($admins, $bob);
+
+# recursive functions
+function factorial(int $n): int {
+  if ($n === 0 || $n === 1) {
+    return 1;
+  }
+  return $n * factorial($n - 1);
+}
+
+var_dump(factorial(5)); // 120

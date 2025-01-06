@@ -83,3 +83,16 @@ $padded = str_pad("Hello", 10, "-", STR_PAD_BOTH);
 echo $padded . "\n"; # --Hello---
 var_dump(trim($padded, "-")); # Hello
 var_dump(trim("      Hello    ")); # Hello
+
+$mb_str = "こんにちは";
+var_dump(mb_strlen($mb_str)); # 5
+
+$url = "http://example.com?name=Amo&age=25";
+var_dump(urlencode($url)); # http%3A%2F%2Fexample.com%3Fname%3DAmo%26age%3D25
+var_dump(urldecode(urlencode($url))); # http://example.com?name=Amo&age=25
+
+$html = "<h1>Hello</h1>";
+var_dump(htmlentities($html)); # &lt;h1&gt;Hello&lt;/h1&gt;
+
+var_dump(base64_encode($name)); # QW1v
+var_dump(base64_decode("QW1v")); # Amo

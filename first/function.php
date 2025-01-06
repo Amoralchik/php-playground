@@ -62,3 +62,18 @@ $anonymousGreet = function (string $name) use ($anonymousGreetMessage): string {
 
 echo $anonymousGreetMessage . "\n"; // still just "Bye"
 echo $anonymousGreet("Alice");
+
+# Union Types
+function processInput(int|float|string $input): string {
+  return match (true) {
+    is_int($input) => "Integer",
+    is_float($input) => "Float",
+    is_string($input) => "String",
+    default => "Unknown"
+  };
+}
+
+$inputs = [1, 1.0, "hello"];
+foreach ($inputs as $input) {
+  echo processInput($input) . "\n";
+}

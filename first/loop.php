@@ -48,3 +48,18 @@ do {
   echo "Roll again\n";
   $rollAgain = trim(fgets(STDIN));
 } while ("y" === $rollAgain);
+
+# Foreach loop
+
+$basket = [
+  "apple" => 2,
+  "banana" => 3,
+];
+$total = 0;
+
+foreach ($basket as $item => $quantity) {
+  $total += $quantity;
+  echo "$item: $quantity\n";
+}
+
+echo "Total items: $total\n";

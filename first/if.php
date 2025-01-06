@@ -40,3 +40,20 @@ if ($username === "admin" && $password === "password") {
 } else {
   echo "Login Failed";
 }
+
+# switch case
+
+$size = "M";
+
+switch ($size) {
+  case "S":
+  case "M":
+    echo "Size is Small or Medium\n";
+    break;
+  case "L":
+  case "XL":
+    echo "Size is Large or Extra Large\n";
+    break;
+  default:
+    echo "Unknown Size\n";
+}

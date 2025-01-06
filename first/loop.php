@@ -31,3 +31,7 @@ for ($i = 10; $i >= 0; $i--) {
   }
   sleep(1); 
 }
+
+for ($i = 0; $i < 10; $i++) {
+  echo "Current number: $i\n";
+};

@@ -94,3 +94,20 @@ $squaredNumbers = array_map(
   fn ($number): int => $number * $arrowMultiplier, // we can use global variables here
   $arrowNumbers
 );
+
+# Higher order functions
+$users = [
+  ["id" => 1, "name" => "Alice", "age" => 25, "role" => "admin"],
+  ["id" => 2, "name" => "Bob", "age" => 30, "role" => "user"],
+  ["id" => 3, "name" => "Charlie", "age" => 35, "role" => "user"],
+];
+function createFilter($key, $value) {
+  return fn ($item) => $item[$key] === $value;
+};
+$isAdmin = createFilter("role", "admin");
+$isBob = createFilter("name", "Bob");
+
+$admins = array_filter($users, $isAdmin);
+$bob = array_filter($users, $isBob);
+
+var_dump($admins, $bob);

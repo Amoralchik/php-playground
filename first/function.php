@@ -77,3 +77,12 @@ $inputs = [1, 1.0, "hello"];
 foreach ($inputs as $input) {
   echo processInput($input) . "\n";
 }
+
+# named arguments php8.0 feature
+function namedGreet(string $name, string $greeting = "Hello", bool $shout = false): string {
+  $message = "$greeting, $name!\n";
+  return $shout ? strtoupper($message) : $message;
+}
+
+echo namedGreet(name: "Alice", shout: true);
+echo namedGreet("Bob", greeting: "Hi");

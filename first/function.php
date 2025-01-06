@@ -86,3 +86,11 @@ function namedGreet(string $name, string $greeting = "Hello", bool $shout = fals
 
 echo namedGreet(name: "Alice", shout: true);
 echo namedGreet("Bob", greeting: "Hi");
+
+# Arrow functions php7.4 feature
+$arrowNumbers = [1,2,3,4,5];
+$arrowMultiplier = 3;
+$squaredNumbers = array_map(
+  fn ($number): int => $number * $arrowMultiplier, // we can use global variables here
+  $arrowNumbers
+);

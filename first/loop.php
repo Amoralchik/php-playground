@@ -35,3 +35,16 @@ for ($i = 10; $i >= 0; $i--) {
 for ($i = 0; $i < 10; $i++) {
   echo "Current number: $i\n";
 };
+
+# Do while loop
+
+do {
+  $diceRoll = rand(1,6);
+  echo "You rolled a $diceRoll\n";
+  if ($diceRoll === 6) {
+    echo "You win!\n";
+    break;
+  }
+  echo "Roll again\n";
+  $rollAgain = trim(fgets(STDIN));
+} while ("y" === $rollAgain);

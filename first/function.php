@@ -121,3 +121,15 @@ function factorial(int $n): int {
 }
 
 var_dump(factorial(5)); // 120
+
+# generators
+function countDown(int $start): Generator {
+  for ($i = $start; $i >= 0; $i--) {
+    yield random_int(1, 100);
+  }
+} 
+
+foreach (countDown(5) as $number) {
+  echo $number . "\n";
+}
+

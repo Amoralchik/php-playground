@@ -96,3 +96,26 @@ var_dump(htmlentities($html)); # &lt;h1&gt;Hello&lt;/h1&gt;
 
 var_dump(base64_encode($name)); # QW1v
 var_dump(base64_decode("QW1v")); # Amo
+
+# 
+
+$int = 42;
+$float = 3.14;
+$stringToInt = (int)"100";
+$floatToInt = (int)3.99;
+
+var_dump($int, $float, $stringToInt, $floatToInt); # 42, 3.14, 100, 3
+var_dump(7 % 2 === 0);
+
+var_dump(
+  round(3.7),
+  round(3.4),
+  floor(3.8),
+  ceil(3.1),
+  min(2,3,1,7),
+  max(2,3,1,7),
+  rand(1,10),
+  abs(-5)
+);
+
+echo "Formatted: " . number_format(1234567.89, 2) . "\n"; # 1,234,567.89

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index', [
+        'name' => '<b>Piotr</b>'
+    ]);
 });
 
 Route::get('/greet/{name}', function ($name) {
@@ -11,7 +13,7 @@ Route::get('/greet/{name}', function ($name) {
 });
 
 Route::fallback(function () {
-    return redirect()->route('root');
+    return redirect()->route('index');
 });
 
 // GET

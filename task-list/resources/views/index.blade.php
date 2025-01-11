@@ -4,6 +4,7 @@
 
 @section('content')
 <div>
+    <a href={{ route('tasks.create')}}> Create task </a>
     {{-- @if (count($tasks)) --}}
         @forelse ($tasks as $task)
             <div>

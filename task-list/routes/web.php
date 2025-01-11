@@ -24,14 +24,15 @@ Route::post('/tasks', function (Request $request) {
         'long_description' => 'required|max:500'
     ]);
 
-    $task = new Task();
+    $task = new Task;
     $task->title = $data['title'];
     $task->description = $data['description'];
     $task->long_description = $data['long_description'];
     $task->completed = false;
     $task->save();
 
-    return redirect()->route('tasks.show', ['id' => $task->id]);
+    return redirect()->route('tasks.show', ['id' => $task->id])
+    ->with('success', 'Task created successfully!');
 })->name('tasks.store');
 
 Route::fallback(function () {

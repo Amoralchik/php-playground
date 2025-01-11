@@ -3,12 +3,16 @@
 @section('title', $task->title)
 
 @section('content')
-    <p> {{$task->description}} </p>
+    <div class="gap-2 flex flex-col">
+        <p> {{$task->description}} </p>
 
-    @if ($task->long_description)
-        <p> {{$task->long_description}} </p>
-    @endif
+        @if ($task->long_description)
+            <p> {{$task->long_description}} </p>
+        @endif
 
-    <p> {{$task->created_at}} </p>
-    <p> {{$task->updated_at}} </p>
+    <div class="gap-2 flex justify-between">
+        <p> Created: {{$task->created_at}} </p>
+        <p> Updated: {{$task->updated_at}} </p>
+    </div>
+    </div>
 @endsection

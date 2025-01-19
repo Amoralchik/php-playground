@@ -10,7 +10,7 @@
     {{-- @if (count($tasks)) --}}
         @forelse ($tasks as $task)
             <div>
-            <a href={{ route('tasks.show', ['id' => $task->id]) }}
+            <a href={{ route('tasks.show', ['task' => $task->id]) }}
             class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             > {{$task->title}} </a>
             </div>

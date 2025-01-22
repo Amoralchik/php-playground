@@ -19,5 +19,12 @@
         @endforelse
     {{-- @else --}}
     {{-- @endif --}}
+    <div>
+    @if ($tasks->count())
+        <div>
+            {{ $tasks->links() }}
+        </div>
+    @endif
+    </div>
 </div>
 @endsection

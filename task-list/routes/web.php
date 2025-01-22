@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/tasks', function () {
     return view('index', [
-        'tasks' => Task::latest()->where('completed', false)->get()
+        'tasks' => Task::latest()->where('completed', false)->paginate()
     ]);
 })->name('tasks.index');
 

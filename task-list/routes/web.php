@@ -28,6 +28,12 @@ Route::post('/tasks', function (TaskRequest $request) {
     ->with('success', 'Task created successfully!');
 })->name('tasks.store');
 
+Route::put('/tasks/{task}/toggle-complete', function (Task $task) {
+    $task->toggleCompleted();
+    return redirect()->route('tasks.index')
+    ->with('success', 'Task status updated successfully!');
+})->name('tasks.complete');
+
 Route::put('/tasks/{task}', function (TaskRequest $request, Task $task) {
     $task->update($request->validated());
     return redirect()->route('tasks.show', ['task' => $task->id])

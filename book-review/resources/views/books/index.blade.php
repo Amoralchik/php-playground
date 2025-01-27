@@ -14,9 +14,9 @@
         $filters = [
             '' => 'Latest',
             'popular_last_month' => 'Popular Last Month',
-            'popular_last_6month' => 'Popular Last 6 Month',
+            'popular_last_6months' => 'Popular Last 6 Month',
             'highest_rated_last_month' => 'Highest Rated Last Month',
-            'highest_rated_last_6month' => 'Highest Rated Last 6 Month',
+            'highest_rated_last_6months' => 'Highest Rated Last 6 Month',
         ];
 
         $isFilterActive = fn (string $key) => request('filter') === $key || (request('filter') === null && $key === '');
@@ -38,8 +38,8 @@
             <h3 class="text-lg font-semibold text-gray-800">{{ $book->title }}</h3>
             <h4 class="text-base font-medium text-gray-600">by {{ $book->author ?? 'Unknown Author' }}</h4>
             <div class="flex justify-between items-center mt-2">
-                <p class="text-base font-medium text-gray-600">Rating: {{ optional($book->reviews_avg)->average ?? 0 }}</p>
-                <p class="text-base font-medium text-gray-600">Reviews: {{ $book->reviews_count ?? 'No Reviews' }}</p>
+                <p class="text-base font-medium text-gray-600">Rating: {{ number_format($book->reviews_avg_rating, 1)}}</p>
+                <p class="text-base font-medium text-gray-600">out of {{ $book->reviews_count }}</p>
             </div>
         </li>
     @empty

@@ -9,7 +9,7 @@
     <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600">Search</button>
 </form>
 
-<div class="flex items-center justify-center gap-4">
+<div class="flex items-center justify-center gap-4 p-2 rounded-lg">
     @php
         $filters = [
             '' => 'Latest',
@@ -25,14 +25,12 @@
     @foreach ($filters as $key => $label)
         <a
             href="{{ route('books.index', [...request()->query(), 'filter' => $key]) }}"
-            class="px-4 py-2 {{ $isFilterActive($key) ? 'text-blue-500 hover:text-blue-800 bg-gray-100' : 'text-gray-600 hover:text-gray-800 bg-white' }} rounded-lg"
+            class="px-4 py-2 {{ $isFilterActive($key) ? 'text-blue-500 hover:text-blue-800' : 'text-gray-600 hover:text-gray-800' }} bg-white rounded-lg"
         >
             {{ $label }}
         </a>
     @endforeach
 </div>
-
-<hr class="border-t border-gray-300 mt-4">
 
 <ul class="grid grid-cols-2 gap-4 items-center justify-center">
     @forelse ($books as $book)

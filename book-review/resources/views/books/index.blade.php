@@ -32,9 +32,9 @@
     @endforeach
 </div>
 
-<ul class="grid grid-cols-2 gap-4 items-center justify-center">
+<ul class="grid grid-cols-1 gap-4 items-center justify-center w-full mx-auto max-w-2xl">
     @forelse ($books as $book)
-        <li class="w-full bg-white rounded-md p-4 shadow-md">
+        <li class="col-span-1 w-full bg-white rounded-md p-4 shadow-md flex flex-col">
             <h3 class="text-lg font-semibold text-gray-800">{{ $book->title }}</h3>
             <h4 class="text-base font-medium text-gray-600">by {{ $book->author ?? 'Unknown Author' }}</h4>
             <div class="flex justify-between items-center mt-2">

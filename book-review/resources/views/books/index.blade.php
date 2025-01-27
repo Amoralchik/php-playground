@@ -4,6 +4,13 @@
 
 @section('content')
 
+<form method="get" action="{{ route('books.index') }}" class="space-x-4 flex items-center">
+    @csrf
+    <a href="{{ route('books.index') }}" class="text-gray-600 hover:text-gray-800">Clear</a>
+    <input type="text" name="title" placeholder="Search by title" value="{{ request('title') }}" class="border border-gray-300 rounded-lg shadow-md px-4 py-2 w-full focus:outline-none focus:border-blue-500" />
+    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600">Search</button>
+</form>
+
 <ul class="grid grid-col grid-cols-2 gap-4 items-center justify-center">
     @forelse ($books as $book)
         <li class="w-full bg-white rounded-md">

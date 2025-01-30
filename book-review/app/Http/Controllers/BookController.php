@@ -15,20 +15,26 @@ class BookController extends Controller
         $title = $request->input('title');
         $filter = $request->input('filter', '');
 
-        $books = Book::when(
-            $title,
-            fn ($query, $title) => $query->title($title)
-        );
+        $cacheKey = "book_$filter\_$title";
 
-        $books = match ($filter) {
-            'popular_last_month' => $books->popularLastMonth(),
-            'popular_last_6months' => $books->popularLast6Months(),
-            'highest_rated_last_month' => $books->highestRatedLastMonth(),
-            'highest_rated_last_6months' => $books->highestRatedLast6Months(),
-            default => $books->latest()
-        };
+        $books = cache()->remember($cacheKey, 3600, function () use ($title, $filter) {
+            $books = Book::when(
+                $title,
+                fn ($query, $title) => $query->title($title)
+            );
 
-        $books = $books->get();
+            $books = match ($filter) {
+                'popular_last_month' => $books->popularLastMonth(),
+                'popular_last_6months' => $books->popularLast6Months(),
+                'highest_rated_last_month' => $books->highestRatedLastMonth(),
+                'highest_rated_last_6months' => $books->highestRatedLast6Months(),
+                default => $books->latest()
+            };
+
+            return $books->get();
+
+        });
+
 
         return view('books.index', ['books' => $books]);
     }

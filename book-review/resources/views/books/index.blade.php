@@ -34,6 +34,7 @@
 
 <ul class="grid grid-cols-1 gap-4 items-center justify-center w-full mx-auto max-w-2xl">
     @forelse ($books as $book)
+    <a href="{{ route('books.show', ['book' => $book]) }}">
         <li class="col-span-1 w-full bg-white rounded-md p-4 shadow-md flex flex-col">
             <h3 class="text-lg font-semibold text-gray-800">{{ $book->title }}</h3>
             <h4 class="text-base font-medium text-gray-600">by {{ $book->author ?? 'Unknown Author' }}</h4>
@@ -42,6 +43,7 @@
                 <p class="text-base font-medium text-gray-600">out of {{ $book->reviews_count }}</p>
             </div>
         </li>
+    </a>
     @empty
         <div class="text-center text-gray-600 mt-4">
             <h2 class="font-bold text-xl">No books found</h2>

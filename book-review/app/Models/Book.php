@@ -28,11 +28,11 @@ class Book extends Model
     }
 
     public function scopePopular(Builder $query, $from = null, $to = null): Builder|QueryBuilder {
-        return $query->withReviewsCount()->orderBy("reviews_count", 'desc');
+        return $query->withReviewsCount($from, $to)->orderBy("reviews_count", 'desc');
     }
 
     public function scopeHighestRated(Builder $query, $from = null, $to = null): Builder|QueryBuilder {
-        return $query->withAvgRating()->orderBy("reviews_avg_rating", 'desc');
+        return $query->withAvgRating($from, $to)->orderBy("reviews_avg_rating", 'desc');
     }
 
     public function scopeMinReviews(Builder $query, int $minReviews): Builder|QueryBuilder {
@@ -61,7 +61,7 @@ class Book extends Model
             $query->where("created_at", '>=', $from);
         } elseif (!$from && $to) {
             $query->where("created_at", '<=', $to);
-        } else {
+        } elseif ($from && $to) {
             $query->whereBetween("created_at", [$from, $to]);
         }
     }

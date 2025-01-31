@@ -10,15 +10,16 @@
 
                 <div class="border-b flex flex-col gap-4 mb-8">
                     <h1 class="text-6xl font-black text-center uppercase text-gray-900">@yield('title')</h1>
-
-                    <div>
-                        <h2 class="text-xl font-bold mb-2 text-gray-800">Book Details</h2>
-                        <div class="flex justify-between items-center">
-                            <p class="text-gray-600 mb-2 text-sm">Author: {{ $book->author }}</p>
-                            <p class="text-gray-600 mb-2 text-sm">Published: {{ $book->created_at->toFormattedDateString() }}</p>
-                            <div class="flex justify-between items-center mt-2">
-                                <p class="text-base font-medium text-gray-600">Rating: {{ number_format($book->reviews_avg_rating, 1)}}</p>
-                                <p class="text-base font-medium text-gray-600">out of {{ $book->reviews_count }}</p>
+                    <div class="flex flex-col gap-4">
+                        <h2 class="text-xl font-bold text-gray-800">Book Details</h2>
+                        <div class="flex mb-4 justify-between text-sm text-gray-600">
+                            <div class="flex flex-col gap-2">
+                                <p>Author: {{ $book->author }}</p>
+                                <p>Published: {{ $book->created_at->toFormattedDateString() }}</p>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <p>Rating: {{ number_format($book->reviews_avg_rating, 1)}}</p>
+                                <p>out of {{ $book->reviews_count }}</p>
                             </div>
                         </div>
                     </div>

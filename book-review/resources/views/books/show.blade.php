@@ -16,6 +16,10 @@
                         <div class="flex justify-between items-center">
                             <p class="text-gray-600 mb-2 text-sm">Author: {{ $book->author }}</p>
                             <p class="text-gray-600 mb-2 text-sm">Published: {{ $book->created_at->toFormattedDateString() }}</p>
+                            <div class="flex justify-between items-center mt-2">
+                                <p class="text-base font-medium text-gray-600">Rating: {{ number_format($book->reviews_avg_rating, 1)}}</p>
+                                <p class="text-base font-medium text-gray-600">out of {{ $book->reviews_count }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

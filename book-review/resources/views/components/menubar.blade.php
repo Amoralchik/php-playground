@@ -6,7 +6,6 @@
     </div>
     <div class="hidden md:block space-x-10">
         <a href={{ route('books.index') }} class="text-gray-900 hover:gray-700">Home</a>
-        <a href={{ route('books.create') }} class="text-gray-900 hover:gray-700">Add Book</a>
     </div>
 </div>
 </nav>

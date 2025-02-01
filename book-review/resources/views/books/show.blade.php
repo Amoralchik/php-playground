@@ -23,6 +23,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <div>
+                        <a href="{{ route('books.reviews.create', ['book' => $book]) }}"> Add a review! </a>
+                    </div>
                 </div>
 
                 <h3 class="text-xl font-bold mb-4">Reviews</h3>

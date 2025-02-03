@@ -1,97 +1,110 @@
-# Book Review Application
+# PHP playground
 
-This is a Book Review application built with Laravel. It allows users to review books, manage their reviews, and explore reviews from other users.
+Learning playground for php all-in-one
 
 ## Features
 
-- User authentication and authorization
-- Book management (CRUD operations)
-- Review management (CRUD operations)
-- User profile management
-- Search functionality for books and reviews
-- Responsive design
+### Event Management System
 
-## Requirements
+- Create and manage events with ease
+- Organize events by date and location
+- Manage event participants and notifications
+- Track event status and completion
 
-- PHP >= 7.4
-- Composer
-- Node.js & npm
-- MySQL or any other supported database
+### Task List
+
+- Add, edit, and delete tasks
+- Mark tasks as complete/incomplete
+- Search and filter tasks by title or status
+- Paginate task list for better navigation
+
+### Book Review System
+
+- Create and manage book reviews
+- Rate books on a scale of 1-5 stars
+- Leave detailed written reviews
+- View average ratings per book
+- Filter books based on ratings and categories
 
 ## Installation
 
+To get started with the project, follow these steps:
+
 1. Clone the repository:
 
-   ```sh
-   git clone https://github.com/your-username/book-review.git
-   cd book-review
-   ```
+```bash
+git clone [your-repository-url].git
+cd [project-name]
+```
 
-2. Install dependencies:
+2. Install dependencies using Composer:
 
-   ```sh
-   composer install
-   npm install
-   ```
+```bash
+composer install
+```
 
-3. Copy the file to `.env` and configure your environment variables:
+3. Set up your database:
 
-   ```sh
-   cp .env.example .env
-   ```
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-4. Generate the application key:
+4. Run the database migrations:
 
-   ```sh
-   php artisan key:generate
-   ```
+```bash
+php artisan migrate:fresh --seed
+```
 
-5. Run the database migrations and seeders:
+5. Install and compile frontend assets:
 
-   ```sh
-   php artisan migrate --seed
-   ```
-
-6. Build the front-end assets:
-
-   ```sh
-   npm run dev
-   ```
-
-7. Start the development server:
-   ```sh
-   php artisan serve
-   ```
+```bash
+npm install
+npm run dev
+```
 
 ## Usage
 
-- Visit `http://localhost:8000` in your browser to access the application.
-- Register a new user or log in with existing credentials.
-- Add, edit, or delete books and reviews.
-- Explore reviews from other users.
+### Event Management Routes
 
-## Testing
+- List all events: `/events`
+- Create new event: `/events/create`
+- Edit event: `/events/{event}/edit`
+- View event details: `/events/{event}`
 
-To run the tests, use the following command:
+### Task List Routes
 
-```sh
-php artisan test
-```
+- View task list: `/tasks`
+- Create new task: `/tasks/create`
+- Toggle task completion: `/tasks/{task}/toggle-complete`
+- Update task: `/tasks/{task}/edit`
 
-## Contributing
+### Book Review Routes
 
-Thank you for considering contributing to the Book Review application! Please read the contribution guide for details on how to contribute.
+- View all books: `/books`
+- View book details and reviews: `/books/{book}`
+- Add review to book: `/books/{book}/reviews/create`
+
+## Key Features
+
+- **Task Management**:
+
+  - CRUD operations for tasks
+  - Toggle task completion status
+  - Responsive pagination
+
+- **Book Reviews**:
+  - Create, read, update reviews
+  - Rate books and view ratings
+  - Display average ratings
+  - Cache invalidation on review changes
 
 ## License
 
-The Book Review application is open-sourced software licensed under the MIT license.
+The project is open-sourced under the MIT license.
 
-## Acknowledgements
+## Acknowledgments
 
-- Laravel - The PHP framework used for this application.
-- Tailwind CSS - The CSS framework used for styling.
-- Vite - The build tool used for front-end assets.
+Special thanks to:
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within this application, please send an e-mail to the repository owner. All security vulnerabilities will be promptly addressed.
+- The Laravel community for providing excellent frameworks and documentation
